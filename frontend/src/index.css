@@ -11,3 +11,21 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+main{
+  min-height: 80vh;
+}
+
+.card-body a {
+  text-decoration: none;
+}
+
+.card-body h3 {
+  padding: 0.8em 0;
+  font-weight: 400;
+}
+
+.rating {
+  margin-right: 0.5em;
+  display: inline;
+}
