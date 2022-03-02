@@ -1,7 +1,7 @@
-// this is CommonJs... CommonJS => require, ES Modules => import
+//  CommonJS => require, ES Modules => import
 import express from 'express';
 import dotenv from 'dotenv';
-
+import colors from 'colors';
 // while importing file we have to include .js (modules are imported w/o .js)
 import connectDB from './config/db.js';
 import products from './data/products.js';
@@ -14,7 +14,7 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 
 app.get('/', (req, res) => {
-    res.send(`API is running at port ${PORT}...`);
+    res.send(`API is running at port ${PORT}`);
 });
 
 app.get("/api/products", (req, res) => {
@@ -28,5 +28,5 @@ app.get("/api/products/:id", (req, res) => {
 
 app.listen(
     PORT, 
-    console.log(`Server started in ${process.env.NODE_ENV} mode on port ${PORT}`)
+    console.log(`Server started in ${process.env.NODE_ENV} mode on port ${PORT}`.magenta.italic)
 );
