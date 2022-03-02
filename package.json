@@ -3,8 +3,12 @@
   "version": "1.0.0",
   "description": "A MERN Stack E-Commerce Application",
   "main": "server.js",
+  "type": "module",
   "scripts": {
-    "start": "node backend/server"
+    "start": "node backend/server",
+    "server": "nodemon backend/server --delay 1",
+    "client": "npm start --prefix frontend",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "repository": {
     "type": "git",
@@ -28,6 +32,11 @@
   },
   "homepage": "https://github.com/haaaziq/eCommerce_ProShop#readme",
   "dependencies": {
-    "express": "^4.17.3"
+    "dotenv": "^16.0.0",
+    "express": "^4.17.3",
+    "mongoose": "^6.2.4"
+  },
+  "devDependencies": {
+    "concurrently": "^7.0.0"
   }
 }
