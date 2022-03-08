@@ -4,7 +4,7 @@ import dotenv from 'dotenv';
 import colors from 'colors';
 // while importing file we have to include .js (modules are imported w/o .js)
 import connectDB from './config/db.js';
-import products from './data/products.js';
+import productRoutes from './routes/productRoutes.js';
 
 dotenv.config();
 connectDB();
@@ -17,14 +17,8 @@ app.get('/', (req, res) => {
     res.send(`API is running at port ${PORT}`);
 });
 
-app.get("/api/products", (req, res) => {
-    res.json(products);
-});
-
-app.get("/api/products/:id", (req, res) => {
-    const product = products.find((p) => p._id === req.params.id);
-    res.json(product);
-});
+// Product Routes
+app.use('/api/products', productRoutes);
 
 app.listen(
     PORT, 
